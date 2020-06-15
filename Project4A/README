@@ -1,0 +1,15 @@
+NAME: Dhruv Singhania
+EMAIL: singhania_dhruv@yahoo.com
+ID: 105125631
+
+Beaglebone serial number: BBGW17090006
+
+WiFi MAC address: F4:AF:E7:6E:9C:86
+
+Included files:
+	 my_beaglebone.jpg - selfie of me holding my beaglebone
+	 connected.png - screen shot showing I gave beaglebone name and configured network access
+	 copy.png - screen shot showing me copy hello world program to beaglebone
+	 build_run.png - screen shot showing me build and run hello world program
+	 git.png - screen shot showing me install git and clone repository
+	 Makefile - Makefile to delete files and build distribution tarbell

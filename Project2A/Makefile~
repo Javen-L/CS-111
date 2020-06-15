@@ -1,0 +1,10 @@
+#NAME: Dhruv Singhania
+#EMAIL: singhania_dhruv@yahoo.com
+#ID: 105125631
+
+build:
+	gcc lab2_add.c -g -Wall -Wextra -pthread -o lab2_add
+	gcc lab2_list.c SortedList.c -g -Wall -Wextra -pthread -o lab2-list
+
+clean:
+	rm lab2_list lab2_add lab2a-105125631.tar.gz

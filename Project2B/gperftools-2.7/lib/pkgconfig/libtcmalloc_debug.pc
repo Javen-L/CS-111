@@ -1,0 +1,13 @@
+prefix=/u/ce/ugrad/dhruv/Desktop/CS111/Project2B/gperftools-2.7
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: gperftools
+Version: 2.7
+Description: Performance tools for C++
+URL: http://code.google.com/p/gperftools/
+Requires:
+Libs: -L${libdir} -ltcmalloc_debug
+Libs.private: -pthread -lpthread
+Cflags: -I${includedir}

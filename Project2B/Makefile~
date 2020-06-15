@@ -1,0 +1,39 @@
+#NAME: Dhruv Singhania
+#EMAIL: singhania_dhruv@yahoo.com
+#ID: 105125631
+
+default:
+	gcc lab2_list.c SortedList.c -g -Wall -Wextra -lpthread -lprofiler -o lab2_list
+
+tests: default
+	./lab2_list --iterations=1000 --sync=m >> lab2b_list.csv
+	./lab2_list --threads=2 --iterations=1000 --sync=m >> lab2b_list.csv
+	./lab2_list --threads=4 --iterations=1000 --sync=m >> lab2b_list.csv
+	./lab2_list --threads=8 --iterations=1000 --sync=m >> lab2b_list.csv
+	./lab2_list --threads=12 --iterations=1000 --sync=m >> lab2b_list.csv
+	./lab2_list --threads=16 --iterations=1000 --sync=m >> lab2b_list.csv
+	./lab2_list --threads=24 --iterations=1000 --sync=m >> lab2b_list.csv
+
+	./lab2_list --iterations=1000 --sync=s >> lab2b_list.csv
+	./lab2_list --threads=2 --iterations=1000 --sync=s >> lab2b_list.csv
+	./lab2_list --threads=4 --iterations=1000 --sync=s >> lab2b_list.csv
+	./lab2_list --threads=8 --iterations=1000 --sync=s >> lab2b_list.csv
+	./lab2_list --threads=12 --iterations=1000 --sync=s >> lab2b_list.csv
+	./lab2_list --threads=16 --iterations=1000 --sync=s >> lab2b_list.csv
+	./lab2_list --threads=24 --iterations=1000 --sync=s >> lab2b_list.csv
+
+graphs: tests
+	./lab2b_list.gp
+
+profile: default
+	LD_PRELOAD=/u/ce/ugrad/dhruv/Desktop/CS111/Project2B/gperftools-2.1/lib/libprofiler.so
+	CPUPROFILE=./rawtxt ./lab2_list --iterations=1000 --threads=12 --sync=s
+	pprof --text ./lab2_list ./rawtxt > profile.out
+	pprof --list=start_routine ./lab2_list ./rawtxt >> profile.out
+	rm ./rawtxt
+
+dist: graphs
+	tar -czvf lab2b-105125631.tar.gz SortedList.h SortedList.c lab2_list.c Makefile lab2b_list.csv profile.out lab2b_1.png lab2b_2.png lab2b_3.png lab2b_4.png lab2b_5.png lab2b_list.gp README
+
+clean:
+	rm lab2_list lab2b-105125631.tar.gz profile.out

@@ -1,0 +1,13 @@
+NAME: Dhruv Singhania
+EMAIL: singhania_dhruv@yahoo.com
+ID: 105125631
+
+CS 111 Project 1B
+
+Included files:
+	 lab1b-server.c - C source file that acts as the server
+	 lab1b-client.c - C source file that acts as the client
+	 Makefile - Makefile to build the executable, delete files, and build distribution tarbell
+
+References:
+	https://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html
