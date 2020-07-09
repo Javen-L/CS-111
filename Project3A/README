@@ -1,0 +1,15 @@
+NAME: Shrenik Manoj Kankaria,Dhruv Singhania
+EMAIL: shrenik0123@gmail.com,singhania_dhruv@yahoo.com
+ID: 005176857,105125631
+
+Included Files:
+	lab3a.c - C source file that analyzes EXT2 file system and outputs a summary to standard out.
+	Makefile - Makefile to compile program, create distribution tarball, and delete all programs.
+	README - A file containing the descriptions of other files in the tarball.
+	ext2_fs.h -  A header file containing variables and structures used in lab3a.c
+
+To compare the output we received to trivial.csv, we used the cmp command.
+
+References:
+	www.nongnu.org/ext2-doc/ext2.html
+	https://linux.die.net/man/1/cmp

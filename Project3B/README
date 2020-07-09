@@ -1,0 +1,13 @@
+NAME: Shrenik Manoj Kankaria,Dhruv Singhania
+EMAIL: shrenik0123@gmail.com,singhania_dhruv@yahoo.com
+ID: 005176857,105125631
+
+Included files:
+	lab3b.py - Python source module that analyzes a file system summary and reports on all discovered inconsistencies
+	lab3b_maker - Script that helps build executable lab3b
+	Makefile - Makefile to produce executable lab3b, create deliverable tarbell, and delete all programs
+	README - README text file containing descriptions of each of the included files and any other information
+
+References:
+	docs.python.org/3/library/sys.html
+	docs.python.org/3/library/sys.html

@@ -1,0 +1,7 @@
+#NAME: Shrenik Manoj Kankaria,Dhruv Singhania
+#EMAIL: shrenik0123@gmail.com,singhania_dhruv@yahoo.com
+#ID: 005176857,105125631
+
+python3 lab3b.py $1
+
+exit $?
