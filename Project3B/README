@@ -2,12 +2,15 @@ NAME: Shrenik Manoj Kankaria,Dhruv Singhania
 EMAIL: shrenik0123@gmail.com,singhania_dhruv@yahoo.com
 ID: 005176857,105125631
 
+For this project, we used Python 3 to create our source module.
 Included files:
-	lab3b.py - Python source module that analyzes a file system summary and reports on all discovered inconsistencies
-	lab3b_maker - Script that helps build executable lab3b
-	Makefile - Makefile to produce executable lab3b, create deliverable tarbell, and delete all programs
-	README - README text file containing descriptions of each of the included files and any other information
-
+	lab3b.py - Python source module that analyzes a file system summary and reports on all discovered inconsistencies.
+	lab3b_maker - Script that helps link and build executable lab3b.
+	Makefile - Makefile to produce executable lab3b, create deliverable tarball, and remove all files created by the Makefile. Its 3 tzrgets are default, dist and clean respectively.
+	README - It is a text file containing descriptions of each of the included files and any other relevant information such as references.
+	
 References:
 	docs.python.org/3/library/sys.html
 	docs.python.org/3/library/sys.html
+	https://www.geeksforgeeks.org/floor-ceil-function-python/
+	https://linux.die.net/man/1/ln
