@@ -1,0 +1,12 @@
+NAME: Dhruv Singhania
+EMAIL: singhania_dhruv@yahoo.com
+ID: 105125631
+
+Included files:
+	lab4c_tcp.c - C source file for TCP logging server that builds and runs on a Beaglebone
+	lab4c_tls.c - C source file for TLS logging server that builds and runs on a Beaglebone
+	Makefile - Makefile to build program, delete program, and create deliverable
+	README - README to describe included files and provide references
+
+References:
+	https://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html
