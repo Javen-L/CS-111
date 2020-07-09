@@ -1,0 +1,11 @@
+NAME: Dhruv Singhania
+EMAIL: singhania_dhruv@yahoo.com
+ID: 105125631
+
+Included files:
+	Makefile - Makefile to build program, test program, delete program and create deliverable
+	lab4b.c - C source file that reads temperature
+
+References:
+	https://wiki.seeedstudio.com/Grove-Temperature_Sensor_V1.2/
+	https://iotdk.intel.com/docs/master/mraa/
