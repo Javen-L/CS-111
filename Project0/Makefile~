@@ -1,0 +1,9 @@
+#NAME: Dhruv Singhania
+#EMAIL: singhania_dhruv@yahoo.com
+#ID: 105125631
+
+all:
+	gcc -g -Wall -Wextra -o lab0 lab0.c
+
+clean:
+	rm lab0

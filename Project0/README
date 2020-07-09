@@ -1,0 +1,22 @@
+NAME: Dhruv Singhania
+EMAIL: singhania_dhruv@yahoo.com
+ID: 105125631
+
+CS 111 Project 0
+
+Included files:
+	 lab0.c         - C source file that copies standard input to standard output
+	 Makefile       - Makefile to build executable, run smoke test, delete files, and build distribution tarball
+	 backtrace.png  - Screenshot of segfault and stack backtrace
+	 breakpoint.png - Screenshot of breakpoint and pointer inspection
+	 smoke_check.sh - Bash scripts that performs a smoke check on lab0
+
+Smoke test description:
+      Return code 0 - check that --input and --output are both functional, normal process returns 0, and output matches input
+      Return code 1 - check that an unrecognized argument returns 1
+      Return code 2 - check that inability to open input file returns 2
+      Return code 3 - check that inability to open output file returns 3
+      Return code 4 - check that --segfault and --catch are both functional, and catching and receiving SIGSEGV returns 4
+
+References:
+	https://www.gnu.org/software/libc/manual/html_node/Getopt-Long-Option-Example.html

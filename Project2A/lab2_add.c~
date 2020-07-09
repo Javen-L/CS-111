@@ -1,0 +1,117 @@
+//NAME: Dhruv Singhania
+//EMAIL: singhania_dhruv@yahoo.com
+//ID: 105125631
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <getopt.h>
+#include <string.h>
+#include <time.h>
+#include <pthread.h>
+
+long long counter = 0; //counter
+
+void add(long long *pointer, long long value); //basic add routine
+void handle_error(char *msg, int code); //error handling
+void *start_routine(void *arg); //thread routine
+
+int main(int argc, char *const argv[]) {
+  char *name = "add-none";
+  int num_threads = 1; //number of parallel threads
+  int num_iterations = 1; //number of iterations
+  int ret; //return value for various functions
+  int c; //holds value of getopt_long
+  while(1) {
+    static struct option long_options[] = //holds key for options
+      {
+       {"threads", required_argument, 0, 't'},
+       {"iterations", required_argument, 0, 'i'},
+       {0, 0, 0, 0}
+      };
+    int option_index = 0;
+    c = getopt_long(argc, argv, "", long_options, &option_index);
+    if(c == -1) { //breaks when there are no more options
+      break;
+    }
+    switch(c) {
+    case 't':
+      num_threads = atoi(optarg);
+      if(num_threads < 1) {
+        handle_error("Number of threads must be greater than 0", 0);
+      }
+      break;
+    case 'i':
+      num_iterations = atoi(optarg);
+      if(num_iterations < 1) {
+        handle_error("Number of iterations must be greater than 0", 0);
+      }
+      break;
+    default:
+      abort();
+    }
+  }
+  struct timespec start, end;
+  long long operations, run_time, average_time;
+  ret = clock_gettime(CLOCK_MONOTONIC, &start);
+  if(ret != 0) {
+    handle_error("Error with clock_gettime()", 1);
+  }
+  pthread_t *thread;
+  thread = (pthread_t*)malloc(sizeof(pthread_t)*num_threads);
+  if(thread == NULL) {
+    handle_error("Error with malloc()", 1);
+  }
+  for(int i = 0; i < num_threads; i++) {
+    ret = pthread_create(&thread[i], NULL, start_routine, &num_iterations);
+    if(ret != 0) {
+      handle_error("Error with pthread_create()", 1);
+    }
+  }
+  for(int i = 0; i < num_threads; i++) {
+    ret = pthread_join(thread[i], NULL);
+    if(ret != 0) {
+      handle_error("Error with pthread_join()", 1);
+    }
+  }
+  ret = clock_gettime(CLOCK_MONOTONIC, &end);
+  if(ret != 0) {
+    handle_error("Error with clock_gettime()", 1);
+  }
+  operations = num_threads * num_iterations * 2;
+  run_time = 1000000000 * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec;
+  average_time = run_time / operations;
+  fprintf(stdout, "%s,%d,%d,%lld,%lld,%lld,%lld\n", name, num_threads, num_iterations, operations, run_time, average_time, counter);
+  exit(0);
+}
+
+void add(long long *pointer, long long value) {
+  long long sum = *pointer + value;
+  *pointer = sum;
+}
+
+void handle_error(char *msg, int code) {
+  switch(code) {
+  case 0: //invalid command line parameter
+    fprintf(stderr, "%s\n", msg);
+    exit(1);
+  case 1: //system call error
+    perror(msg);
+    exit(1);
+  case 2: //other failures
+    fprintf(stderr, "%s\n", msg);
+    exit(2);
+  } 
+}
+
+void *start_routine(void *arg) {
+  int num_iter = (int *)arg;
+  for(int i = 0; i < num_iter; i++) {
+    add(&counter, 1);
+  }
+  for(int i = 0; i < num_iter; i++) {
+    add(&counter, -1);
+  }
+  return NULL;
+}

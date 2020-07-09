@@ -1,0 +1,13 @@
+NAME: Dhruv Singhania
+EMAIL: singhania_dhruv@yahoo.com
+ID: 105125631
+
+CS 111 Project 1A
+
+Included files:
+	lab1a.c - C source file that creates a multi-process client and server
+	Makefile - Makefile to build executable, delete files, and build distribution tarbell
+
+References:
+	https://pubs.opengroup.org/onlinepubs/7908799/xsh/termios.h.html
+	https://www.ascii-code.com/
